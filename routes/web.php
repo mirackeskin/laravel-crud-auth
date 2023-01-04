@@ -19,10 +19,15 @@ Route::group(["prefix" => "/"], function () {
     Route::post("login", [AuthController::class, "login"]);
     Route::get("/register", [AuthController::class, "register"]);
     Route::post("/sign", [AuthController::class, "registration"]);
+    
 });
 
 Route::group(["prefix"=>"/"],function(){
     Route::get("/dashboard", [ProductsController::class, "index"]);
+    Route::get("/logout", [ProductsController::class, "logout"]);
+    Route::get("delete/{id}", [ProductsController::class, "delete"]);
+    Route::get("/create", [ProductsController::class, "createpage"]);
+    Route::post("/insert", [ProductsController::class, "create"]);
 });
 
 
