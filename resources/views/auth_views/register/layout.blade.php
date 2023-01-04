@@ -13,7 +13,7 @@
   <body>
     
     <div class="main-container">
-      @yield('login-panel')
+      @yield('register-panel')
     </div>
 
     

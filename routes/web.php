@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 /*
@@ -13,4 +14,16 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get("/", [AuthController::class, "index"]);
+Route::group(["prefix" => "/"], function () {
+    Route::get("/", [AuthController::class, "index"]);
+    Route::post("login", [AuthController::class, "login"]);
+    Route::get("/register", [AuthController::class, "register"]);
+    Route::post("/sign", [AuthController::class, "registration"]);
+});
+
+Route::group(["prefix"=>"/"],function(){
+    Route::get("/dashboard", [ProductsController::class, "index"]);
+});
+
+
+
