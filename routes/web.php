@@ -28,6 +28,8 @@ Route::group(["prefix"=>"/"],function(){
     Route::get("delete/{id}", [ProductsController::class, "delete"]);
     Route::get("/create", [ProductsController::class, "createpage"]);
     Route::post("/insert", [ProductsController::class, "create"]);
+    Route::get("edit/{id}", [ProductsController::class, "edit"]);
+    Route::post("/update", [ProductsController::class, "update"]);
 });
 
 

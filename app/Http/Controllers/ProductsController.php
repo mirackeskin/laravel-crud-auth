@@ -45,6 +45,30 @@ class ProductsController extends Controller
         }
     } 
 
+    public function edit($id){
+        $select = Products::where(["id" => $id])->get()->toArray();
+        
+        return view("dashboard_views.edit.content",["product"=>$select]);
+    }
+    public function update(Request $request){
+        $inputs = $request->all();
+        $image = $inputs["image"];
+        $image_name = $image->getClientOriginalName();
+        $upload_file = $image->move(public_path("images"),$image_name);
+        $updateData = array(
+            "title"=>$inputs["title"],
+            "content"=>$inputs["content"],
+            "image_url"=>$image_name
+        );
+        if($upload_file){
+            $update = Products::where(["id" => $inputs["id"]])->update($updateData);
+            if($update){
+                return redirect("/dashboard");
+            }else{
+                return redirect("/edit");
+            }
+        }
+    }
 
 
     public function delete($id){

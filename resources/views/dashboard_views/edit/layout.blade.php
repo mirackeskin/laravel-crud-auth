@@ -13,7 +13,7 @@
   <body>
     
     <div class="dashboard-container container">
-      @yield('table-panel')
+      @yield('update-form-panel')
     </div>
 
     

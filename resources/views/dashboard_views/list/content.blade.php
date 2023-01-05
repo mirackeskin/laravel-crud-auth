@@ -28,7 +28,7 @@
                             <td>{{$product["content"]}}</td>
                             <td><img src="{{'images/'.$product["image_url"]}}" alt=""></td>
                             <td>
-                                <a href="" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="{{url("edit/".$product["id"])}}" class="btn btn-warning btn-sm">Edit</a>
                                 <a href="{{url("delete/".$product["id"])}}" class="btn btn-danger btn-sm">Delete</a>
                             </td>
                         </tr>
